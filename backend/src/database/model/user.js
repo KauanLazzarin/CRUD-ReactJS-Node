@@ -11,6 +11,16 @@ const UserModel = new mongoose.Schema({
         required: true
     },
 
+    phoneNumber: {
+        type: Number,
+        required: true
+    },
+
+    cpf: {
+        type: Number,
+        required: true
+    },
+
     createdAt: {
         type: Date,
         required: true,

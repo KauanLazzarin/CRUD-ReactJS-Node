@@ -2,7 +2,19 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('./database/controller/UserController.js');
 
-router.get('/', (req, res) => res.send('hello'));
+// home route
+router.get('/', (req, res) => res.send('Hello, try another route'));
+
+// get users route
+router.get('/users', UserController.getUsers);
+
+// get user by id
+router.get('/users/getuser', UserController.getUserById);
+
+// create user
 router.post('/create', UserController.createUser);
+
+//update user
+router.put('/users/update/:id', UserController.updateUser);
 
 module.exports = router;

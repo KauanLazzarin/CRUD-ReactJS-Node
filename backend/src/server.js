@@ -4,6 +4,7 @@ const routes = require('./routes.js');
 const parser = require('body-parser');
 const server = express();
 
+// try connects to server
 try {
     mongoose.connect('mongodb://localhost:27017/crud', {
         useNewUrlParser: true,
@@ -11,11 +12,13 @@ try {
         useFindAndModify: false
     });
 
-    console.log('mongodb connected successfully')
+    console.log('Connection with MongoDB done');
 } catch (error) {
-    console.log(error)
-}
+    console.log('Connection with MongoDB Server failed, error:');
+    console.log(error);
+};
 
+// some server settings;
 server.use(express.json());
 server.use(parser.urlencoded({extended: true}));
 server.use(routes);
