@@ -9,10 +9,16 @@ const NavigationContainer = styled.nav`
 `;
 
 const NavigationLink = styled.p`
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     font-family: 'Work Sans';
-    color: var(--text-small);
+    padding: 10px;
+    border-radius: 10px;
+    transition: 200ms;
+
+    &:hover {
+        background-color: #ffffff;
+    }
 `;
 
 export default function Navigation ({ paths }) {
@@ -22,7 +28,7 @@ export default function Navigation ({ paths }) {
                 paths.map((path) => {
                     return (
                         <NavigationLink>
-                            <Link to={path.href}>{path.name}</Link>
+                            <Link style={{"color": "var(--text-small)"}} to={path.href}>{path.name}</Link>
                         </NavigationLink>
                     )
                 })

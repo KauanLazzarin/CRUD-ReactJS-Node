@@ -1,9 +1,7 @@
 import Header from "./components/Header/Header";
 import Form from "./components/Create-Form/Form";
-import { Route, BrowserRouter as Router, Switch, Link} from "react-router-dom";
-
 import Main from "./components/main";
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch} from "react-router-dom";
 
 export default function App() {
   return (
@@ -23,12 +21,5 @@ export default function App() {
           
         </Switch>
     </Router>
-    // <BrowserRouter>
-    //   <Header />
-
-    //   <Routes>
-    //     <Route path="/"  element={<Form />}/>
-    //   </Routes>
-    // </BrowserRouter>
   );
 }
