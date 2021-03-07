@@ -1,0 +1,32 @@
+/* 
+    ----fonts---
+
+    nunito: 400 600 700
+    work sans: 400 500 700
+*/
+
+:root {
+    --bg-light: #eef3ff;
+    --box-bg: #CEF0E1;
+    --text-strong: #182B4D;
+    --text-small:#505050; 
+}
+
+body {
+    background-color: var(--bg-light);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}

@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 
 const UserDB = mongoose.model('User');
 
+// All controlers, to create, list, update and delete users
 module.exports = {
+
+    // create user function
     async createUser (req, res) {
         try {
             await UserDB.create(req.body);
@@ -16,6 +19,7 @@ module.exports = {
         };
     },
 
+    // list all users function
     async getUsers (req, res) {
         try {
             const usersData = await UserDB.find();
@@ -28,6 +32,7 @@ module.exports = {
         }
     },
 
+    // list user by a ID function
     async getUserById (req, res) {
         try {
             const {id} = req.body;
@@ -39,7 +44,8 @@ module.exports = {
             return;
         };
     },
-
+    
+    // update user function
     async updateUser (req, res) {
         try {
             const {id} = req.params;
