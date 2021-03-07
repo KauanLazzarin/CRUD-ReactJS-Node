@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from './Button';
+import {Rotating} from './CreatingLoading';
 import Input from './Input';
 
 const FormContainer = styled.main`
@@ -53,25 +54,53 @@ export default function Form () {
     const [clientCpf, setClientCpf] = React.useState('');
     const [clientPhone, setClientPhone] = React.useState(0);
     const [data, setData] = React.useState({});
+    const [isCreating, setCreating] = React.useState(false);
 
     function handleSubmit (event) {
-        console.log(data);
         event.preventDefault();
+        console.log(data);
+        createClient();
     };
+
+    async function createClient () {
+        try {
+            setCreating(true);
+            await fetch("http://localhost:3003/create", {
+                method: 'POST',
+                headers: { 
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(
+                    {
+                        name: clientName,
+                        email: clientEmail,
+                        phoneNumber: clientPhone,
+                        cpf: clientCpf
+                    }
+                )
+            });
+
+            setCreating(false);
+        } catch (error) {
+            console.log(error);
+            alert('Algo deu errado, contate os administradores ou tente novamente');
+        }
+    }
 
     React.useEffect(() => {
         
         setData({
-            name: clientName,
-            email: clientEmail,
-            cpf: clientCpf,
-            phone: clientPhone
+            "name": clientName,
+           "email": clientEmail,
+            "phoneNumber": clientPhone,
+            "cpf": clientCpf
         })
 
     }, [clientName, clientEmail, clientCpf, clientPhone]);
 
     return (
-        <FormContainer>
+        <FormContainer >
             <FormBox onSubmit={handleSubmit}>
                 <FormBoxHeader>Cadastro de clientes</FormBoxHeader>
                 <Input 
@@ -114,7 +143,9 @@ export default function Form () {
                     Telefone do cliente
                 </Input>
 
-                <Button type="submit">Cadastrar</Button>
+                {
+                    isCreating === true ? <Rotating/> : <Button>Cadastrar</Button> 
+                }
             </FormBox>
         </FormContainer>
     )

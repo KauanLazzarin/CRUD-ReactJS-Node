@@ -41,6 +41,7 @@ export default function Input ({ children, type, placeholder, id, name, updateFu
                 placeholder={placeholder} 
                 onChange={({target}) => updateFunction(target.value)}
                 autoComplete="none"
+                required
             />
         </InputDivider>
     )    

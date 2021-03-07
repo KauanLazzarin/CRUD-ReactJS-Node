@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes.js');
 const parser = require('body-parser');
+const cors = require('cors');
 const server = express();
 
 // try connects to server
@@ -20,6 +21,8 @@ try {
 
 // some server settings;
 server.use(express.json());
+server.use(cors());
 server.use(parser.urlencoded({extended: true}));
 server.use(routes);
+
 server.listen(3003, console.log('servidor rodando'));

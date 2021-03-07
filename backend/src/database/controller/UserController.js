@@ -10,7 +10,7 @@ module.exports = {
     async createUser (req, res) {
         try {
             await UserDB.create(req.body);
-            console.log(`User created with sucssess`);
+            console.log(`User created with success`);
             
             return res.json(req.body);
         } catch (error) {
