@@ -23,20 +23,21 @@ export default function UsersTable () {
     return (
         <table className={styles.userTable}>
             <tr>
-                <th>Nome </th>
+                <th>Nome</th>
                 <th>Email</th>
                 <th>CPF</th>
                 <th>Número de telefone</th>
+                <th>Ações</th>
             </tr>
             {
                 users.map((user) => {
                     return (
                         <>
                             <tr>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td>{user.cpf}</td>
-                                <td>{user.phoneNumber}</td>
+                                <td key={user.name}>{user.name}</td>
+                                <td key={user.name}>{user.email}</td>
+                                <td key={user.name}>{user.cpf}</td>
+                                <td key={user.name}>{user.phoneNumber}</td>
                             </tr>
                         </>
                     )
