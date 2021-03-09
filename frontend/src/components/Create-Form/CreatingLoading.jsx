@@ -16,11 +16,3 @@ export const Rotating = styled.div`
         }
     }
 `;
-
-// export default function CreatingLoading () {
-//     return (
-//         <Box>
-//             <Rotating />
-//         </Box>
-//     )
-// }

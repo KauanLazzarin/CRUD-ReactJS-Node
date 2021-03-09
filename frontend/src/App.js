@@ -2,6 +2,7 @@ import Header from "./components/Header/Header";
 import Form from "./components/Create-Form/Form";
 import Main from "./components/main";
 import { Route, BrowserRouter as Router, Switch} from "react-router-dom";
+import UsersTable from "./components/Users/UsersTable";
 
 export default function App() {
   return (
@@ -12,7 +13,7 @@ export default function App() {
         <Switch>
 
           <Route path="/users">
-            <Main />
+            <UsersTable />
           </Route>
 
           <Route path="/create">

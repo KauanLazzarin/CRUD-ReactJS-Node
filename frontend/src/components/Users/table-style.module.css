@@ -1,0 +1,28 @@
+.userTable {
+    width: 100%;
+    background-color: var(--box-bg);
+    margin-top: 5vh;
+    border-top: 3px solid var(--text-strong);
+    text-align: center;
+    border: none;
+}
+
+.userTable th {
+    font-size: 22px;
+    font-family: 'Nunito';
+    color: var(--text-strong);
+    padding: 1.4vh 0;
+}
+
+.userTable tr {
+}
+
+.userTable td {
+    background-color: white;
+    font-size: 20px;
+    color: var(--text-small);
+    font-family: 'Work Sans';
+    font-weight: 500;
+    padding: 7px;
+    border: none;
+}
