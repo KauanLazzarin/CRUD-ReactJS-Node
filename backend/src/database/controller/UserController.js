@@ -65,5 +65,17 @@ module.exports = {
             console.log(error);
             return;
         };
+
+    },
+
+    async deleteUser (req, res) {
+        try {
+            const id = req.params.id;
+            await UserDB.findByIdAndDelete(id);
+
+            return res.send('User delete done');
+        } catch (error) {
+            console.log(error);
+        };
     }
 };
