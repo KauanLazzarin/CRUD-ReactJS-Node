@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from './Button';
-import {Rotating} from './CreatingLoading';
-import Input from './Input';
+import { Button } from './../Create-Form/Button';
+import {Rotating} from './../Create-Form/CreatingLoading';
+import Input from './../Create-Form/Input';
 
 const FormContainer = styled.main`
     margin: 5vh 0;
@@ -47,7 +47,7 @@ const FormBoxHeader = styled.h2`
     color: var(--text-strong);
 `;
 
-export default function Form () {
+export default function EditUser () {
 
     const [clientName, setClientName] = React.useState('');
     const [clientEmail, setClientEmail] = React.useState('');
@@ -55,6 +55,7 @@ export default function Form () {
     const [clientPhone, setClientPhone] = React.useState(0);
     const [data, setData] = React.useState({});
     const [isCreating, setCreating] = React.useState(false);
+    const user_key = JSON.parse(localStorage.getItem('user_key'));
 
     function handleSubmit (event) {
         event.preventDefault();
@@ -65,8 +66,8 @@ export default function Form () {
     async function createClient () {
         try {
             setCreating(true);
-            await fetch("http://localhost:3003/create", {
-                method: 'POST',
+            await fetch(`http://localhost:3003/users/update/${user_key}`, {
+                method: 'PUT',
                 headers: { 
                     "Accept": "application/json",
                     "Content-Type": "application/json"
@@ -102,14 +103,13 @@ export default function Form () {
     return (
         <FormContainer >
             <FormBox onSubmit={handleSubmit}>
-                <FormBoxHeader>Cadastro de clientes</FormBoxHeader>
+                <FormBoxHeader>Editar dados do cliente</FormBoxHeader>
                 <Input 
                     type="text" 
                     placeholder="Nome" 
                     id="clientName" 
                     name="clientName"
                     updateFunction={setClientName}
-                    required
                 >
                     Nome do cliente
                 </Input>
@@ -120,7 +120,6 @@ export default function Form () {
                     id="clientEmail" 
                     name="clientEmail"
                     updateFunction={setClientEmail}
-                    required
                 >
                     Email do cliente
                 </Input>
@@ -131,7 +130,6 @@ export default function Form () {
                     id="clientCPF" 
                     name="clientCPF"
                     updateFunction={setClientCpf}
-                    required
                 >
                     CPF do cliente
                 </Input>
@@ -142,7 +140,6 @@ export default function Form () {
                     id="clientNumber" 
                     name="clientNumber"
                     updateFunction={setClientPhone}
-                    required
                 >
                     Telefone do cliente
                 </Input>

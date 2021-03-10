@@ -1,4 +1,6 @@
 import React from 'react';
+import DeleteButton from './DeleteButton';
+import { EditButton } from './EditButton';
 import styles from './table-style.module.css';
 
 export default function UsersTable () {
@@ -14,6 +16,11 @@ export default function UsersTable () {
         } catch (error) {
             alert('Algo não hocorreu como esperado, tente novamente ou contate os adms');
         }
+    };
+
+    function editHandler (userId) {
+        localStorage.setItem('user_key', JSON.stringify(userId));
+        window.location = '/edit';
     };
 
     React.useEffect(() => {
@@ -35,9 +42,15 @@ export default function UsersTable () {
                         <>
                             <tr>
                                 <td key={user.name}>{user.name}</td>
-                                <td key={user.name}>{user.email}</td>
-                                <td key={user.name}>{user.cpf}</td>
-                                <td key={user.name}>{user.phoneNumber}</td>
+                                <td key={user.email}>{user.email}</td>
+                                <td key={user.cpf}>{user.cpf}</td>
+                                <td key={user.phoneNumber}>{user.phoneNumber}</td>
+                                <td key={user._id}>
+                                    <DeleteButton productId={user._id} />
+                                    <EditButton onClick={() => editHandler(user._id)}>
+                                        <i className="material-icons">edit</i>
+                                    </EditButton>
+                                </td>
                             </tr>
                         </>
                     )

@@ -1,13 +1,12 @@
 import Header from "./components/Header/Header";
 import Form from "./components/Create-Form/Form";
-import Main from "./components/main";
 import { Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import UsersTable from "./components/Users/UsersTable";
+import EditUser from "./components/Edit-User/EditUser";
 
 export default function App() {
   return (
     <Router>
-
         <Header />
 
         <Switch>
@@ -18,6 +17,10 @@ export default function App() {
 
           <Route path="/create">
             <Form />
+          </Route>
+
+          <Route path="/edit">
+            <EditUser />
           </Route>
           
         </Switch>

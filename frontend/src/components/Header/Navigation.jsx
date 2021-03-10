@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavigationContainer = styled.nav`
-    width: 20%;
+    width: 30%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 `;
 
 const NavigationLink = styled.p`

@@ -30,7 +30,7 @@ const Label = styled.label`
     font-family: 'Nunito';
 `;
 
-export default function Input ({ children, type, placeholder, id, name, updateFunction }) {
+export default function Input ({ children, type, placeholder, id, name, updateFunction }, ...props) {
     return (
         <InputDivider>
             <Label htmlFor={id}>{children}</Label>
@@ -40,8 +40,7 @@ export default function Input ({ children, type, placeholder, id, name, updateFu
                 name={name} 
                 placeholder={placeholder} 
                 onChange={({target}) => updateFunction(target.value)}
-                autoComplete="none"
-                required
+                {...props}
             />
         </InputDivider>
     )    

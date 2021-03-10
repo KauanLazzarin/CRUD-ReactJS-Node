@@ -24,9 +24,9 @@ export default function Header ({children}) {
         },
         
         {
-            name: 'Cadastrar Cliente',
+            name: 'Cadastrar cliente',
             href: '/create'
-        }
+        },
     ]
     
     return (
